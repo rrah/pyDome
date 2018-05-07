@@ -86,11 +86,11 @@ def truncate(V_sphere, C_sphere, cutoff_from_bottom):
     vertex_1_idx = c[0] - 1
     vertex_2_idx = c[1] - 1
 
-    if not old_vidx_2_new_v.has_key(vertex_1_idx):
+    if not vertex_1_idx in old_vidx_2_new_v:
       V_final.append(V_new[vertex_1_idx])
       old_vidx_2_new_v[vertex_1_idx] = len(V_final)
 
-    if not old_vidx_2_new_v.has_key(vertex_2_idx):
+    if not vertex_2_idx in old_vidx_2_new_v:
       V_final.append(V_new[vertex_2_idx])
       old_vidx_2_new_v[vertex_2_idx] = len(V_final)
 

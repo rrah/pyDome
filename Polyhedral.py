@@ -43,10 +43,10 @@ class Chord():
 class Vertex():
   def __init__(self, x, y, z):
     self.xyz = np.array([x, y, z])
-		
+                
   def distance_to(self, vertex):
     return np.linalg.linalg.norm(self.xyz - vertex.xyz)
-	
+        
 class Polyhedron(object):
   def __init__(self):
     self.ppt_side_length = self.vertices[0].distance_to(self.vertices[1])
@@ -64,30 +64,30 @@ class Octahedron(Polyhedron):
       ]
 
     self.faces = [
-	    Face(self.vertices[1], self.vertices[2], self.vertices[0]),
-	    Face(self.vertices[2], self.vertices[3], self.vertices[0]),
-	    Face(self.vertices[3], self.vertices[4], self.vertices[0]),
-	    Face(self.vertices[4], self.vertices[1], self.vertices[0]),
-	    Face(self.vertices[5], self.vertices[2], self.vertices[1]),
-	    Face(self.vertices[5], self.vertices[3], self.vertices[2]),
-	    Face(self.vertices[5], self.vertices[4], self.vertices[3]),
-	    Face(self.vertices[5], self.vertices[1], self.vertices[4]),
+            Face(self.vertices[1], self.vertices[2], self.vertices[0]),
+            Face(self.vertices[2], self.vertices[3], self.vertices[0]),
+            Face(self.vertices[3], self.vertices[4], self.vertices[0]),
+            Face(self.vertices[4], self.vertices[1], self.vertices[0]),
+            Face(self.vertices[5], self.vertices[2], self.vertices[1]),
+            Face(self.vertices[5], self.vertices[3], self.vertices[2]),
+            Face(self.vertices[5], self.vertices[4], self.vertices[3]),
+            Face(self.vertices[5], self.vertices[1], self.vertices[4]),
             ]
 
     self.chords = [
-	    Chord(self.vertices[0], self.vertices[1]),
-	    Chord(self.vertices[0], self.vertices[2]),
-	    Chord(self.vertices[0], self.vertices[3]),
-	    Chord(self.vertices[0], self.vertices[4]),
-	    Chord(self.vertices[5], self.vertices[1]),
-	    Chord(self.vertices[5], self.vertices[2]),
-	    Chord(self.vertices[5], self.vertices[3]),
-	    Chord(self.vertices[5], self.vertices[4]),
+            Chord(self.vertices[0], self.vertices[1]),
+            Chord(self.vertices[0], self.vertices[2]),
+            Chord(self.vertices[0], self.vertices[3]),
+            Chord(self.vertices[0], self.vertices[4]),
+            Chord(self.vertices[5], self.vertices[1]),
+            Chord(self.vertices[5], self.vertices[2]),
+            Chord(self.vertices[5], self.vertices[3]),
+            Chord(self.vertices[5], self.vertices[4]),
             Chord(self.vertices[1], self.vertices[2]),
             Chord(self.vertices[2], self.vertices[3]),
             Chord(self.vertices[3], self.vertices[4]),
             Chord(self.vertices[4], self.vertices[1]),
-	    ]
+            ]
 
     super(Octahedron, self).__init__()
 
@@ -98,73 +98,73 @@ class Icosahedron(Polyhedron):
     self.cosine_of_phi = np.float64(0.5) * self.sine_of_phi
 
     self.vertices = [
-	    Vertex(np.float64(0.), np.float64(0.), np.float64(1.)),
-	    Vertex(self.sine_of_phi, 0., self.cosine_of_phi),
-	    Vertex(self.sine_of_phi*np.cos(0.4*PI), self.sine_of_phi*np.sin(0.4*PI), self.cosine_of_phi),
-	    Vertex(self.sine_of_phi*np.cos(0.8*PI), self.sine_of_phi*np.sin(0.8*PI), self.cosine_of_phi),
-	    Vertex(self.sine_of_phi*np.cos(0.8*PI), -self.sine_of_phi*np.sin(0.8*PI), self.cosine_of_phi),
-	    Vertex(self.sine_of_phi*np.cos(0.4*PI), -self.sine_of_phi*np.sin(0.4*PI), self.cosine_of_phi),
-	    Vertex(-self.sine_of_phi*np.cos(0.8*PI), -self.sine_of_phi*np.sin(0.8*PI), -self.cosine_of_phi),
-	    Vertex(-self.sine_of_phi*np.cos(0.8*PI), self.sine_of_phi*np.sin(0.8*PI), -self.cosine_of_phi),
-	    Vertex(-self.sine_of_phi*np.cos(0.4*PI), self.sine_of_phi*np.sin(0.4*PI), -self.cosine_of_phi),
-	    Vertex(-self.sine_of_phi, 0., -self.cosine_of_phi),
-	    Vertex(-self.sine_of_phi*np.cos(0.4*PI), -self.sine_of_phi*np.sin(0.4*PI), -self.cosine_of_phi),
-	    Vertex(np.float64(0.), np.float64(0.), np.float64(-1.))
-	    ]
+            Vertex(np.float64(0.), np.float64(0.), np.float64(1.)),
+            Vertex(self.sine_of_phi, 0., self.cosine_of_phi),
+            Vertex(self.sine_of_phi*np.cos(0.4*PI), self.sine_of_phi*np.sin(0.4*PI), self.cosine_of_phi),
+            Vertex(self.sine_of_phi*np.cos(0.8*PI), self.sine_of_phi*np.sin(0.8*PI), self.cosine_of_phi),
+            Vertex(self.sine_of_phi*np.cos(0.8*PI), -self.sine_of_phi*np.sin(0.8*PI), self.cosine_of_phi),
+            Vertex(self.sine_of_phi*np.cos(0.4*PI), -self.sine_of_phi*np.sin(0.4*PI), self.cosine_of_phi),
+            Vertex(-self.sine_of_phi*np.cos(0.8*PI), -self.sine_of_phi*np.sin(0.8*PI), -self.cosine_of_phi),
+            Vertex(-self.sine_of_phi*np.cos(0.8*PI), self.sine_of_phi*np.sin(0.8*PI), -self.cosine_of_phi),
+            Vertex(-self.sine_of_phi*np.cos(0.4*PI), self.sine_of_phi*np.sin(0.4*PI), -self.cosine_of_phi),
+            Vertex(-self.sine_of_phi, 0., -self.cosine_of_phi),
+            Vertex(-self.sine_of_phi*np.cos(0.4*PI), -self.sine_of_phi*np.sin(0.4*PI), -self.cosine_of_phi),
+            Vertex(np.float64(0.), np.float64(0.), np.float64(-1.))
+            ]
 
     self.faces = [
-	    Face(self.vertices[1], self.vertices[2], self.vertices[0]),
-	    Face(self.vertices[2], self.vertices[3], self.vertices[0]),
-	    Face(self.vertices[3], self.vertices[4], self.vertices[0]),
-	    Face(self.vertices[4], self.vertices[5], self.vertices[0]),
-	    Face(self.vertices[5], self.vertices[1], self.vertices[0]),
-	    Face(self.vertices[5], self.vertices[6], self.vertices[1]),
-	    Face(self.vertices[1], self.vertices[7], self.vertices[2]),
-	    Face(self.vertices[2], self.vertices[8], self.vertices[3]),
-	    Face(self.vertices[3], self.vertices[9], self.vertices[4]),
-	    Face(self.vertices[4], self.vertices[10], self.vertices[5]),
-	    Face(self.vertices[1], self.vertices[6], self.vertices[7]),
-	    Face(self.vertices[2], self.vertices[7], self.vertices[8]),
-	    Face(self.vertices[3], self.vertices[8], self.vertices[9]),
-	    Face(self.vertices[4], self.vertices[9], self.vertices[10]),
-	    Face(self.vertices[5], self.vertices[10], self.vertices[6]),
-	    Face(self.vertices[6], self.vertices[11], self.vertices[7]),
-	    Face(self.vertices[7], self.vertices[11], self.vertices[8]),
-	    Face(self.vertices[8], self.vertices[11], self.vertices[9]),
-	    Face(self.vertices[9], self.vertices[11], self.vertices[10]),
-	    Face(self.vertices[10], self.vertices[11], self.vertices[6]),
-	    ]
+            Face(self.vertices[1], self.vertices[2], self.vertices[0]),
+            Face(self.vertices[2], self.vertices[3], self.vertices[0]),
+            Face(self.vertices[3], self.vertices[4], self.vertices[0]),
+            Face(self.vertices[4], self.vertices[5], self.vertices[0]),
+            Face(self.vertices[5], self.vertices[1], self.vertices[0]),
+            Face(self.vertices[5], self.vertices[6], self.vertices[1]),
+            Face(self.vertices[1], self.vertices[7], self.vertices[2]),
+            Face(self.vertices[2], self.vertices[8], self.vertices[3]),
+            Face(self.vertices[3], self.vertices[9], self.vertices[4]),
+            Face(self.vertices[4], self.vertices[10], self.vertices[5]),
+            Face(self.vertices[1], self.vertices[6], self.vertices[7]),
+            Face(self.vertices[2], self.vertices[7], self.vertices[8]),
+            Face(self.vertices[3], self.vertices[8], self.vertices[9]),
+            Face(self.vertices[4], self.vertices[9], self.vertices[10]),
+            Face(self.vertices[5], self.vertices[10], self.vertices[6]),
+            Face(self.vertices[6], self.vertices[11], self.vertices[7]),
+            Face(self.vertices[7], self.vertices[11], self.vertices[8]),
+            Face(self.vertices[8], self.vertices[11], self.vertices[9]),
+            Face(self.vertices[9], self.vertices[11], self.vertices[10]),
+            Face(self.vertices[10], self.vertices[11], self.vertices[6]),
+            ]
   
     self.chords = [
-	    Chord(self.vertices[0], self.vertices[1]),
-	    Chord(self.vertices[0], self.vertices[2]),
-	    Chord(self.vertices[0], self.vertices[3]),
-	    Chord(self.vertices[0], self.vertices[4]),
-	    Chord(self.vertices[0], self.vertices[5]),
-	    Chord(self.vertices[1], self.vertices[2]),
-	    Chord(self.vertices[2], self.vertices[3]),
-	    Chord(self.vertices[3], self.vertices[4]),
-	    Chord(self.vertices[4], self.vertices[5]),
-	    Chord(self.vertices[5], self.vertices[1]),
-	    Chord(self.vertices[1], self.vertices[7]),
-	    Chord(self.vertices[2], self.vertices[7]),
-	    Chord(self.vertices[2], self.vertices[8]),
-	    Chord(self.vertices[3], self.vertices[8]),
-	    Chord(self.vertices[3], self.vertices[9]),
-	    Chord(self.vertices[4], self.vertices[9]),
-	    Chord(self.vertices[4], self.vertices[10]),
-	    Chord(self.vertices[5], self.vertices[10]),
-	    Chord(self.vertices[5], self.vertices[6]),
-	    Chord(self.vertices[1], self.vertices[6]),
-	    Chord(self.vertices[6], self.vertices[7]),
-	    Chord(self.vertices[7], self.vertices[8]),
-	    Chord(self.vertices[8], self.vertices[9]),
-	    Chord(self.vertices[9], self.vertices[10]),
-	    Chord(self.vertices[6], self.vertices[10]),
-	    Chord(self.vertices[6], self.vertices[11]),
-	    Chord(self.vertices[7], self.vertices[11]),
-	    Chord(self.vertices[8], self.vertices[11]),
-	    Chord(self.vertices[9], self.vertices[11]),
-	    Chord(self.vertices[10], self.vertices[11]),
-	    ]
+            Chord(self.vertices[0], self.vertices[1]),
+            Chord(self.vertices[0], self.vertices[2]),
+            Chord(self.vertices[0], self.vertices[3]),
+            Chord(self.vertices[0], self.vertices[4]),
+            Chord(self.vertices[0], self.vertices[5]),
+            Chord(self.vertices[1], self.vertices[2]),
+            Chord(self.vertices[2], self.vertices[3]),
+            Chord(self.vertices[3], self.vertices[4]),
+            Chord(self.vertices[4], self.vertices[5]),
+            Chord(self.vertices[5], self.vertices[1]),
+            Chord(self.vertices[1], self.vertices[7]),
+            Chord(self.vertices[2], self.vertices[7]),
+            Chord(self.vertices[2], self.vertices[8]),
+            Chord(self.vertices[3], self.vertices[8]),
+            Chord(self.vertices[3], self.vertices[9]),
+            Chord(self.vertices[4], self.vertices[9]),
+            Chord(self.vertices[4], self.vertices[10]),
+            Chord(self.vertices[5], self.vertices[10]),
+            Chord(self.vertices[5], self.vertices[6]),
+            Chord(self.vertices[1], self.vertices[6]),
+            Chord(self.vertices[6], self.vertices[7]),
+            Chord(self.vertices[7], self.vertices[8]),
+            Chord(self.vertices[8], self.vertices[9]),
+            Chord(self.vertices[9], self.vertices[10]),
+            Chord(self.vertices[6], self.vertices[10]),
+            Chord(self.vertices[6], self.vertices[11]),
+            Chord(self.vertices[7], self.vertices[11]),
+            Chord(self.vertices[8], self.vertices[11]),
+            Chord(self.vertices[9], self.vertices[11]),
+            Chord(self.vertices[10], self.vertices[11]),
+            ]
     super(Icosahedron, self).__init__()
